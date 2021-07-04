@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t kterekhin/react-solo -f Dockerfile.dev .
+
+script:
+  - docker run kterekhin/react-solo npm run test -- --coverage
