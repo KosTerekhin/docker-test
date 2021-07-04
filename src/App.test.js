@@ -9,6 +9,6 @@ test("renders `Docker works` on the main screen", () => {
 
 test("renders `=` sign to be present", () => {
   render(<App />);
-  const linkElement = screen.getByText(/=/i);
+  const linkElement = screen.getByText(/=!!!/i);
   expect(linkElement).toBeInTheDocument();
 });
