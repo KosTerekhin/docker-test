@@ -8,9 +8,6 @@
 # script:
 #   - docker run kterekhin/react-solo npm run test -- --watchAll=false
 
-language: node_js
-node_js:
-  - "6"
 services:
   - docker
 cache:
