@@ -1,13 +1,6 @@
-# sudo: required
-# services:
-#   - docker
-
-# before_install:
-#   - docker build -t kterekhin/react-solo -f Dockerfile.dev .
-
-# script:
-#   - docker run kterekhin/react-solo npm run test -- --watchAll=false
-
+sudo: required
+before_install:
+  - docker build -t kterekhin/react-solo -f Dockerfile.dev .
 services:
   - docker
 cache:
@@ -20,7 +13,7 @@ deploy:
     local_dir: dpl_cd_upload
     skip_cleanup: true
     on: &2
-      repo: https://github.com/KosTerekhin/docker-test.git
+      repo: KosTerekhin/docker-test.git
     bucket: deploy-kterekhin
     region: eu-west-1
 
@@ -38,3 +31,4 @@ script:
   - zip -r latest *
   - mkdir -p dpl_cd_upload
   - mv latest.zip dpl_cd_upload/latest.zip
+  - docker run kterekhin/react-solo npm run test -- --watchAll=false
