@@ -1,6 +1,6 @@
 sudo: required
 before_install:
-  - docker build -t kterekhin/react-solo -f ./app/Dockerfile .
+  - docker build -t kterekhin/react-solo -f ./app/Dockerfile.dev .
 services:
   - docker
 cache:

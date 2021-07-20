@@ -12,7 +12,7 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "cd app && react-scripts start",
     "build": "react-scripts build",
     "build:docker": "cd app && react-scripts build",
     "test": "react-scripts test",
