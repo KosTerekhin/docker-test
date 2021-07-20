@@ -4,9 +4,9 @@ WORKDIR '/app'
 
 COPY ./app/package.json .
 COPY ./app/yarn.lock .
-RUN yarn install
+RUN npm install
 COPY . .
-RUN yarn build
+RUN npm run build:docker
 
 FROM nginx 
-COPY --from=builder /app/build /usr/share/nginx/html
+COPY --from=builder /app/app/build /usr/share/nginx/html
