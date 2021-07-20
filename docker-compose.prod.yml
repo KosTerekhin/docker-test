@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    ports:
+      - 3000:80
+    depends_on:
+      - app
+
+  ####### PROD ##########
+  app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    volumes:
+      - /app/node_modules
+      - ./app:/app

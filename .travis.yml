@@ -1,11 +1,11 @@
 sudo: required
 before_install:
-  - docker build -t kterekhin/react-solo -f Dockerfile.dev .
+  - docker build -t kterekhin/react-solo -f ./app/Dockerfile .
 services:
   - docker
 cache:
   directories:
-    - node_modules
+    - ./app/node_modules
 deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY

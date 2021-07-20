@@ -1,19 +1,38 @@
-version: "3"
+version: "3.8"
+
 services:
-  web:
+  nginx:
+    restart: always
     build:
-      context: .
       dockerfile: Dockerfile.dev
+      context: ./nginx
     ports:
-      - "3000:3000"
+      - 3000:80
+    depends_on:
+      - app
+
+  ####### DEV ######
+  app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile.dev
     volumes:
       - /app/node_modules
-      - .:/app
+      - ./app:/app
+
   test:
     build:
-      context: .
+      context: ./app
       dockerfile: Dockerfile.dev
     volumes:
       - /app/node_modules
-      - .:/app
+      - ./app:/app
     command: ["npm", "run", "test"]
+  ####### PROD ##########
+  # app:
+  #   build:
+  #     context: ./app
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - /app/node_modules
+  #     - ./app:/app
