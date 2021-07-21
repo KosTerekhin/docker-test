@@ -28,7 +28,7 @@ deploy:
     region: eu-west-1
     on: *2
 script:
+  - docker run kterekhin/react-solo npm run test -- --watchAll=false
   - zip -r latest *
   - mkdir -p dpl_cd_upload
   - mv latest.zip dpl_cd_upload/latest.zip
-  - cd app && docker run kterekhin/react-solo npm run test -- --watchAll=false
