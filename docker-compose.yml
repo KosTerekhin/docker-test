@@ -28,11 +28,3 @@ services:
       - /app/node_modules
       - ./app:/app
     command: ["npm", "run", "test"]
-  ####### PROD ##########
-  # app:
-  #   build:
-  #     context: ./app
-  #     dockerfile: Dockerfile
-  #   volumes:
-  #     - /app/node_modules
-  #     - ./app:/app
