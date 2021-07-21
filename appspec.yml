@@ -3,10 +3,10 @@ os: linux
 files:
   - source: ./
     destination: /home/ubuntu/app
-hooks:
-  BeforeInstall:
-    - location: /home/ubuntu/app/docker.before.sh
-      timeout: 180
-  AfterInstall:
-    - location: /home/ubuntu/app/docker.after.sh
-      timeout: 180
+# hooks:
+#   BeforeInstall:
+#     - location: /home/ubuntu/app/docker.before.sh
+#       timeout: 180
+#   AfterInstall:
+#     - location: /home/ubuntu/app/docker.after.sh
+#       timeout: 180
