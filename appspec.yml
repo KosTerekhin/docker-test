@@ -5,8 +5,8 @@ files:
     destination: /home/ubuntu/app
 hooks:
   ValidateService:
-    - location: /home/ubuntu/app/docker.before.sh
-      timeout: 180
+    - location: scripts/docker.before.sh
+      timeout: 3600
   # AfterInstall:
   #   - location: /home/ubuntu/app/docker.after.sh
   #     timeout: 180
