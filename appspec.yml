@@ -4,10 +4,11 @@ files:
   - source: /
     destination: /home/ubuntu/app
 hooks:
-  BeforeInstall:
+  AfterInstall:
     - location: scripts/docker_before.sh
       runas: root
-      timeout: 3600
-  # AfterInstall:
-  #   - location: /home/ubuntu/app/docker.after.sh
-  #     timeout: 180
+      timeout: 60
+  ApplicationStart:
+    - location: scripts/docker_after.sh
+      runas: root
+      timeout: 60
